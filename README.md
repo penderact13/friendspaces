@@ -1,27 +1,38 @@
 # FriendSpaces Alpha (v1.1) 💬
 
-**A real-time group chat platform for small groups (2-50 people) with powerful moderation tools.**
+Welcome to FriendSpaces! I'm **Hydration**, and I created FriendSpaces to solve a problem: **Discord is too open and kids aren't allowed to use it**, while **Google Chat is too closed and loses all the customization and feel**. So I made FriendSpaces.
 
-To build your own FriendSpace, [see here](SETUP.md).
+This is the **Alpha version**.
+
+## 🚀 How It Works
+
+1. **Download** the latest release
+2. **Publish** it as a website via GitHub Pages
+3. **Follow** the setup in your website
+4. **Done!**
+
+To actually do this, go to the [**Setup Guide**](SETUP.md) - it's dumbed down for non-nerds and you'll be up and running with GitHub Pages in no time.
 
 ---
 
 ## 🌟 What is FriendSpaces?
 
-FriendSpaces is a private, customizable group chat application built with Firebase. It's designed for close-knit communities who want complete control over their conversations with enterprise-grade moderation features.
+FriendSpaces is a real-time group chat platform for small groups (2-50 people) with powerful moderation tools. It's **private, customizable, and simple** - the perfect middle ground between Discord and Google Chat.
 
-**This is FriendSpaces Alpha v1.1 - now with anti-spam protection and enhanced customization!**
-
-### Key Philosophy
-- **Small & Personal**: Built for 2-50 people max
-- **Powerful Moderation**: Report, kick, ban, and temp-ban features
-- **Customizable**: Your space, your theme, your rules
-- **Privacy First**: Public or private spaces with join codes
-- **Simple & Fast**: No bloat, just chat
+**Built for:**
+- Friend groups who want privacy
+- Families who need a safe space for kids
+- Study groups who want organization
+- Small teams who need control
 
 ---
 
-## ✨ Features
+## ✨ Key Features
+
+### The Perfect Middle Ground
+- **Not too open** (like Discord) - Private spaces with join codes
+- **Not too closed** (like Google Chat) - Full customization and control
+- **Just right** - Safe for kids, powerful for everyone
 
 ### 💬 Core Chat Features
 - **Real-time messaging** powered by Firestore
@@ -157,20 +168,28 @@ Space
 ## 🚀 Getting Started
 
 ### For Users (Joining a Space)
-1. Visit the FriendSpace URL (given by space owner)
+1. Visit the FriendSpace URL (given by space creator)
 2. Create an account or sign in
 3. Enter join code if it's a private space
 4. Start chatting!
 
 ### For Creators (Building Your Own)
-See the complete setup guide: **[SETUP.md](SETUP.md)**
+**See the complete setup guide:** [**SETUP.md**](SETUP.md)
+
+We recommend **GitHub Pages** - it's:
+- ✅ Free
+- ✅ Easy (even for non-nerds!)
+- ✅ No credit card needed
+- ✅ Takes about 10 minutes
 
 Quick overview:
-1. Download the FriendSpaces code
-2. Set up Firebase project
-3. Configure Firebase credentials
-4. Deploy to web
+1. Download FriendSpaces files
+2. Set up Firebase (free tier)
+3. Upload to GitHub
+4. Enable GitHub Pages
 5. Create your space!
+
+**Full step-by-step guide:** [**SETUP.md**](SETUP.md)
 
 ---
 
@@ -332,9 +351,9 @@ The "Alpha" designation indicates this is version 1.0 - stable, feature-complete
 
 ## 👏 Credits
 
-**Created by Mustafa Reza**
+**Created by Hydration**
 
-Built with ❤️ for small groups who want powerful chat without the bloat.
+Built with ❤️ to solve the Discord vs Google Chat problem - giving you the best of both worlds.
 
 ---
 
