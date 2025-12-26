@@ -226,65 +226,14 @@ const firebaseConfig = {
 
 ## 🌐 Step 6: Deploy Your FriendSpace
 
-You have two deployment options:
+You have an easy deployment option:
 
-### Option A: Firebase Hosting (Recommended)
-
-#### 6.1 Install Firebase CLI
-
-Open Terminal/Command Prompt and run:
-
-```bash
-npm install -g firebase-tools
-```
-
-If you don't have Node.js/npm, [download it first](https://nodejs.org/).
-
-#### 6.2 Login to Firebase
-
-```bash
-firebase login
-```
-
-This will open your browser - sign in with your Google account.
-
-#### 6.3 Initialize Firebase
-
-Navigate to your FriendSpaces folder:
-
-```bash
-cd /path/to/FriendSpaces
-```
-
-Initialize Firebase:
-
-```bash
-firebase init hosting
-```
-
-Answer the prompts:
-- **Use existing project** → Select your project
-- **Public directory?** → Press Enter (use current directory `.`)
-- **Configure as single-page app?** → `Yes`
-- **Overwrite index.html?** → `No` (important!)
-- **Set up automatic builds?** → `No`
-
-#### 6.4 Deploy
-
-```bash
-firebase deploy --only hosting
-```
-
-Wait for deployment... Done! ✅
-
-Your FriendSpace is now live at: `https://YOUR_PROJECT_ID.web.app`
-
-### Option B: GitHub Pages
+### GitHub Pages
 
 #### 6.1 Create GitHub Repository
 
 1. Go to [GitHub](https://github.com)
-2. Click **"New repository"**
+2. Click **"New repository"** after clicking the + in the top right corner
 3. Name it `friendspaces` (or your choice)
 4. Make it **Public**
 5. Click **"Create repository"**
