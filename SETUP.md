@@ -1,119 +1,87 @@
-# FriendSpaces Setup Guide 🚀
+# FriendSpaces Alpha - Setup Guide 🚀
 
-**Don't worry - this is easier than it looks!** We'll get you up and running in about 10 minutes.
-
-This guide is written for **non-nerds** - if you can use Google Docs, you can do this.
+Complete guide to building and deploying your own FriendSpace (v1.1).
 
 ---
 
-## 📋 What You'll Need
+## 📋 Prerequisites
 
-- A Google account (you probably have one)
-- A GitHub account (free - we'll show you how to make one)
-- 10 minutes of your time
-- That's it!
-
----
-
-## 📦 Step 1: Download FriendSpaces
-
-1. Go to the [FriendSpaces GitHub Releases](https://github.com/hydration13/friendspaces/releases)
-2. Click on the latest release
-3. Download the `.zip` file
-4. **Unzip it** to a folder on your computer
-   - Right-click → "Extract All" (Windows)
-   - Double-click (Mac)
-
-You should now have a folder called `FriendSpaces` with these files:
-- `index.html`
-- `script.js`
-- `styles.css`
-- `README.md`
-- `SETUP.md` (this file!)
-- `LICENSE`
-
-✅ **Step 1 done!**
+Before you begin, make sure you have:
+- A Google account (for Firebase)
+- A github account (for hosting)
 
 ---
 
-## 🔥 Step 2: Set Up Firebase (The Backend)
+## 📦 Step 1: Get the Code
 
-**What is Firebase?** It's Google's free service that stores your messages and handles logins. Don't worry, it's free for small groups!
+Download the latest release and place them in a directory for use with Github Pages or Firebase Hosting.
+
+---
+
+## 🔥 Step 2: Firebase Project Setup
 
 ### 2.1 Create Firebase Project
 
-1. Go to [console.firebase.google.com](https://console.firebase.google.com/)
-2. Sign in with your Google account
-3. Click **"Add project"** (the big button)
-4. Name it whatever you want (e.g., "My FriendSpace")
-5. Click **Continue**
-6. **Turn off** Google Analytics (we don't need it)
-7. Click **"Create project"**
-8. Wait a few seconds... done!
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Click **"Add project"** or **"Create a project"**
+3. Enter project name: `FriendSpaces` (or your choice)
+4. Click **Continue**
+5. **Disable** Google Analytics (not needed) or keep it if you want
+6. Click **"Create project"**
+7. Wait for creation, then click **"Continue"**
 
-### 2.2 Get Your App Connected
+### 2.2 Register Web App
 
-1. On your Firebase dashboard, click the **Web icon** (looks like `</>`)
-2. Give it a nickname (e.g., "FriendSpaces Web")
-3. **Don't check** the Firebase Hosting box (we're using GitHub Pages!)
+1. In your Firebase project dashboard, click the **Web icon** (`</>`) to add an app.
+2. Register app nickname: `FriendSpaces Web`
+3. ✅ **Check** "Also set up Firebase Hosting"
 4. Click **"Register app"**
-5. You'll see a bunch of code - **COPY EVERYTHING** that looks like this:
+5. **COPY YOUR API** - You'll see a text containing text like this:
 
 ```javascript
 const firebaseConfig = {
-  apiKey: "AIza....",
+  apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
+  projectId: "your-project-id",
   storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123...",
-  appId: "1:123..."
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abcdef123456"
 };
 ```
 
-6. **Paste this somewhere safe** (Notepad, Notes app, etc.) - you'll need it soon!
+6. **Copy the API Key** -  and save it, you'll need it in Step 3
 7. Click **"Continue to console"**
 
-✅ **Step 2 done!**
-
 ---
 
-## 🔐 Step 3: Turn On Logins
+## 🔐 Step 3: Enable Authentication
 
-1. In Firebase (left sidebar), click **"Authentication"**
+1. In the left sidebar, click **"Authentication"** inside of Build.
 2. Click **"Get started"**
-3. Click **"Email/Password"** 
-4. Toggle the **first switch** to ON (it turns blue/purple)
-5. Leave the second one (Email link) OFF
+3. Click on **"Email/Password"** under Sign-in providers
+4. **Enable** the first toggle (Email/Password)
+5. Leave "Email link (passwordless sign-in)" **disabled**
 6. Click **"Save"**
 
-✅ **Step 3 done! Logins are ready.**
-
 ---
 
-## 💾 Step 4: Set Up the Database
-
-**What's this?** This is where your messages, members, and settings are stored.
+## 💾 Step 4: Create Firestore Database
 
 ### 4.1 Create Database
 
-1. In Firebase (left sidebar), click **"Firestore Database"**
+1. In the left sidebar, click **"Firestore Database"** inside of Build.
 2. Click **"Create database"**
-3. Select **"Start in production mode"** (we'll add security next)
+3. Select **"Start in production mode"** (we'll add rules next)
 4. Click **"Next"**
-5. Choose your location - pick the one closest to where most people will use it:
-   - **North America** → `us-central`
-   - **Europe** → `europe-west`
-   - **Asia** → `asia-southeast`
+5. Choose your location (pick closest to your users)
 6. Click **"Enable"**
-7. Wait a few seconds...
+7. Wait for database creation
 
-### 4.2 Add Security Rules
+### 4.2 Set Up Security Rules
 
-**Important:** This keeps your space private and secure!
-
-1. Click the **"Rules"** tab (at the top)
-2. **Delete everything** in the box
-3. Copy and paste these rules (don't worry about understanding them - they just work!):
+1. Still in Firestore Database, click the **"Rules"** tab
+2. **Delete everything** in the editor
+3. **Paste these rules:**
 
 ```javascript
 rules_version = '2';
@@ -255,52 +223,85 @@ const firebaseConfig = {
 
 ---
 
-## 🌐 Step 6: Put It Online with GitHub Pages
+## 🌐 Step 6: Deploy Your FriendSpace
 
-**Why GitHub Pages?** It's free, easy, and doesn't require installing anything!
+You have two deployment options:
 
-### 6.1 Create a GitHub Account (if you don't have one)
+### Option A: Firebase Hosting (Recommended)
 
-1. Go to [github.com](https://github.com)
-2. Click **"Sign up"**
-3. Follow the steps (username, email, password)
-4. Verify your email
-5. Done!
+#### 6.1 Install Firebase CLI
 
-### 6.2 Create Your Repository
+Open Terminal/Command Prompt and run:
 
-**What's a repository?** Think of it as a folder for your website on GitHub.
+```bash
+npm install -g firebase-tools
+```
 
-1. On GitHub, click the **+** button (top right)
+If you don't have Node.js/npm, [download it first](https://nodejs.org/).
+
+#### 6.2 Login to Firebase
+
+```bash
+firebase login
+```
+
+This will open your browser - sign in with your Google account.
+
+#### 6.3 Initialize Firebase
+
+Navigate to your FriendSpaces folder:
+
+```bash
+cd /path/to/FriendSpaces
+```
+
+Initialize Firebase:
+
+```bash
+firebase init hosting
+```
+
+Answer the prompts:
+- **Use existing project** → Select your project
+- **Public directory?** → Press Enter (use current directory `.`)
+- **Configure as single-page app?** → `Yes`
+- **Overwrite index.html?** → `No` (important!)
+- **Set up automatic builds?** → `No`
+
+#### 6.4 Deploy
+
+```bash
+firebase deploy --only hosting
+```
+
+Wait for deployment... Done! ✅
+
+Your FriendSpace is now live at: `https://YOUR_PROJECT_ID.web.app`
+
+### Option B: GitHub Pages
+
+#### 6.1 Create GitHub Repository
+
+1. Go to [GitHub](https://github.com)
 2. Click **"New repository"**
-3. Name it: `friendspaces` (lowercase, no spaces)
-4. Make it **Public** (this is required for free GitHub Pages)
-5. **Don't check** any of the boxes (no README, no .gitignore, no license)
-6. Click **"Create repository"**
+3. Name it `friendspaces` (or your choice)
+4. Make it **Public**
+5. Click **"Create repository"**
 
-### 6.3 Upload Your Files
+#### 6.2 Upload Files
 
-1. On your new repository page, click **"uploading an existing file"** (the blue link)
-2. **Drag and drop** your 3 main files from your computer:
-   - `index.html`
-   - `script.js`
-   - `styles.css`
-3. (Optional) Also upload `README.md`, `SETUP.md`, and `LICENSE` if you want
-4. Scroll down and click **"Commit changes"** (the green button)
+1. Click **"uploading an existing file"**
+2. Drag and drop all your FriendSpaces files
+3. Click **"Commit changes"**
 
-### 6.4 Turn On GitHub Pages
+#### 6.3 Enable GitHub Pages
 
-1. Click **"Settings"** (top of your repository)
-2. Click **"Pages"** (in the left sidebar)
-3. Under "Source", select **"main"** branch
-4. Click **"Save"**
-5. Wait about 1 minute...
-6. Refresh the page
-7. You'll see: **"Your site is live at https://YOUR-USERNAME.github.io/friendspaces/"**
+1. Go to **Settings** → **Pages**
+2. Under "Source", select **main** branch
+3. Select **root** folder
+4. Click **Save**
 
-✅ **Your FriendSpace is online!**
-
-Copy that URL - that's your FriendSpace website!
+Your site will be live at: `https://YOUR_USERNAME.github.io/friendspaces`
 
 ---
 
@@ -520,4 +521,4 @@ You now have a fully functional FriendSpace Alpha (v1.1)! 🎉
 
 ---
 
-**FriendSpaces Alpha v1.1 - Built with ❤️ by Hydration**
+**FriendSpaces Alpha v1.1 - Built with ❤️ by Mustafa Reza**
